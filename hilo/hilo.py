@@ -1,5 +1,5 @@
 from iconservice import *
-
+DEBUG = False
 TAG = "ICONbet HI-LO"
 MAIN_BET_MULTIPLIER = 98.5
 BET_MIN = 100000000000000000
