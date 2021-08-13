@@ -1,7 +1,6 @@
 from iconservice import *
 
 TAG = "ICONbet HI-LO"
-DEBUG = True
 MAIN_BET_MULTIPLIER = 98.5
 BET_MIN = 100000000000000000
 CARD_SUITES = [
@@ -37,11 +36,11 @@ SIDE_BET_MULTIPLIERS = {
 }
 
 BET_LIMIT_RATIOS_SIDE_BET = {
-    1: 2000,
-    2: 2000,
-    3: 500,
-    4: 500,
-    5: 500
+    1: 2000000000000000000000,
+    2: 2000000000000000000000,
+    3: 500000000000000000000,
+    4: 500000000000000000000,
+    5: 500000000000000000000
 }
 
 CARD_TITLES = {
@@ -381,7 +380,7 @@ class HiLo(IconScoreBase):
                 if side_bet_type not in SIDE_BET_TYPES:
                     Logger.debug(f'Invalid side bet type', TAG)
                     revert(f'{TAG}: Invalid side bet type.')
-                side_bet_limit = _treasury_min // BET_LIMIT_RATIOS_SIDE_BET[side_bet_type]
+                side_bet_limit = int(BET_LIMIT_RATIOS_SIDE_BET[side_bet_type])
                 if side_bet_amount < BET_MIN or side_bet_amount > side_bet_limit:
                     Logger.debug(f'Betting amount {side_bet_amount} out of range.', TAG)
                     revert(f'{TAG}: Betting amount {side_bet_amount} out of range ({BET_MIN} ,{side_bet_limit}).')
